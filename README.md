@@ -143,7 +143,7 @@ npx wrangler login
 ### 2. 创建远程 D1 数据库
 
 ```bash
-npx wrangler d1 create order_upload_db
+npx wrangler d1 create m-tool
 ```
 
 命令执行成功后会输出类似如下信息，请复制其中的 `database_id`：
@@ -151,7 +151,7 @@ npx wrangler d1 create order_upload_db
 ```toml
 [[d1_databases]]
 binding = "DB"
-database_name = "order_upload_db"
+database_name = "m-tool"
 database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 

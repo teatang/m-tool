@@ -11,8 +11,8 @@
     "typecheck": "vue-tsc --noEmit && tsc -p tsconfig.worker.json --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "db:init:local": "wrangler d1 migrations apply order_upload_db --local",
-    "db:init:remote": "wrangler d1 migrations apply order_upload_db --remote",
+    "db:init:local": "wrangler d1 migrations apply m-tool --local",
+    "db:init:remote": "wrangler d1 migrations apply m-tool --remote",
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
