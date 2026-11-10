@@ -2,7 +2,7 @@
 # Cloudflare Workers 与 D1 数据库部署配置文件
 # ============================================================================
 
-name = "order-upload-portal"
+name = "m-tool"
 main = "server/index.ts"
 compatibility_date = "2024-11-01"
 
