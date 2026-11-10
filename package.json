@@ -1,0 +1,38 @@
+{
+  "name": "cloudflare-order-upload",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "基于 Cloudflare Workers 与 Cloudflare D1 的单页订单信息上传与后台汇总管理系统",
+  "scripts": {
+    "dev:web": "vite",
+    "dev:worker": "wrangler dev",
+    "build": "vite build",
+    "typecheck": "vue-tsc --noEmit && tsc -p tsconfig.worker.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:init:local": "wrangler d1 migrations apply order_upload_db --local",
+    "db:init:remote": "wrangler d1 migrations apply order_upload_db --remote",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "element-plus": "^2.9.1",
+    "hono": "^4.6.14",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261109.1",
+    "@types/sql.js": "^1.4.9",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^15.11.7",
+    "sql.js": "^1.12.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.6",
+    "vitest": "^2.1.8",
+    "vue-tsc": "^2.2.0",
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,25 @@
+# ============================================================================
+# Cloudflare Workers 与 D1 数据库部署配置文件
+# ============================================================================
+
+name = "order-upload-portal"
+main = "server/index.ts"
+compatibility_date = "2024-11-01"
+
+# 前端构建产物静态资源配置（Vue 3 + Vite 打包到 ./dist）
+# - not_found_handling = "single-page-application"：支持 Vue Router History 模式路由刷新
+# - run_worker_first = ["/api/*"]：保证所有 /api/* 接口请求优先进入 Worker 后端路由，
+#   而静态页面与 JS/CSS 资源直接由 Cloudflare 边缘节点免费托管，不消耗 Worker 请求配额
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+# Cloudflare D1 数据库绑定
+# 部署前请执行 `npx wrangler d1 create order_upload_db`，并将下方的 database_id 替换为真实值
+[[d1_databases]]
+binding = "DB"
+database_name = "order_upload_db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"

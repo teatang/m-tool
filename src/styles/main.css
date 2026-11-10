@@ -1,0 +1,40 @@
+/**
+ * ============================================================================
+ * 全局样式与移动端组件库响应式适配规则
+ * ============================================================================
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+  color: #0f172a;
+  background-color: #f1f5f9;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 移动端下确保 Element Plus 弹出层（日期面板、确认框）不超出屏幕宽度 */
+@media (max-width: 768px) {
+  .el-picker-panel {
+    max-width: calc(100vw - 20px) !important;
+  }
+
+  .el-picker-panel__body-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .el-message-box {
+    width: calc(100vw - 32px) !important;
+    max-width: 420px;
+  }
+}
